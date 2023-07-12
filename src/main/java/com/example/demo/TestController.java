@@ -12,10 +12,6 @@ public class TestController {
         return "index.html";
     }
 	
-	@RequestMapping(value = "/home")
-    public String test(){
-        return "test.jsp";
-    }
 	
     @ResponseBody
     @RequestMapping("/valueTest")
