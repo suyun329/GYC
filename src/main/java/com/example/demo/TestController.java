@@ -12,34 +12,25 @@ import java.net.URLEncoder;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-
+@Controller
 public class TestController {
-	//@RequestMapping(value = "/home")
-    //public String home(){
-    //    return "index.html";
-    //}
-	
-	
-    //@ResponseBody
-    //@RequestMapping("/valueTest")
-    //public String valueTest(){
-    //    String value = "테스트 String";
-    //    return value;
-    //}
+	/*@RequestMapping("/")
+	public @ResponseBody NewsVO show() {
+		NewsVO vo = new NewsVO();
+		vo.setTitle("뉴욕증시 안도 랠리···S&P500 이틀째 최고치 마감");
+		vo.setContent("나스닥 4주연속 상승세·S&P도 3주째 올라\r\n"
+				+ "존슨앤드존슨 백신 폐기로 1%이상 떨어져\r\n"
+				+ "맥도날드는 고객정보 유출에도 1%대 상승");
+		vo.setCategory("STOCK");
+		
+		return vo;
+	}
 
 
 
 
 
-//package test;
-    //@GetMapping("test")
-    //public String test(){
-        //String value = "테스트 String";
-    //    return "test";
-    //}
-
-
-    @GetMapping("/api")
+	@GetMapping("/api")
     public String apiTest() throws IOException{
     	StringBuilder result = new StringBuilder();
 		
@@ -65,7 +56,10 @@ public class TestController {
     		conn.disconnect();
     		
     	return result.toString();
+	
     	
     }
+	*/
+	
 	
 }
