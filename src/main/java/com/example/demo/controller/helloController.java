@@ -72,30 +72,21 @@ public class helloController {
 		//JSON데이터를 넣어 JSON Object 로 만들어 준다.
 		JSONObject jsonObject = (JSONObject)jsonParser.parse(result.toString());
 		JSONObject ListPublicReservationDetail = (JSONObject)jsonObject.get("ListPublicReservationDetail");
-		//JSONObject row = (JSONObject)ListPublicReservationDetail.get("row");
+		JSONArray row = (JSONArray)ListPublicReservationDetail.get("row");
 		
-		//JSONArray batter = low.getJSONArray("batter");
 		//배열 추출
-		//Object ob = jsonObject.get("NOTICE");
-		//batter.getJSONObject(i).getString("id")
+    	JSONObject row_nm = (JSONObject)row.get(0);
+    	
 		conn.disconnect();
 		model.addAttribute(attributeName = "num1", attributeValue= num1);
-		model.addAttribute(attributeName = "val", attributeValue= result.toString());
+		model.addAttribute(attributeName = "plac", attributeValue= row_nm.get("PLACENM").toString());
+		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCEPTBEGDT").toString());
+		model.addAttribute(attributeName = "d_2", attributeValue= row_nm.get("RCEPTENDDT").toString());
 
 		model.addAttribute(attributeName = "insttNm", attributeValue= a.toString());  
 		
 		
 		
-		//for(int i=0; i<array.size(); i++){
-		             
-		    //배열 안에 있는것도 JSON형식 이기 때문에 JSON Object 로 추출
-		    //JSONObject object = (JSONObject) array.get(i);
-		             
-		    //JSON name으로 추출
-		    
-		//Value = object.get("insttNm");
-		
-  
         return "gonggong";
     } //서비스 ID입력하면 해당 정보 나옴
 	
