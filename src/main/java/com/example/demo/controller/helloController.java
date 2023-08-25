@@ -25,7 +25,6 @@ public class helloController {
 	
 	private String attributeName;
 	StringBuilder result = new StringBuilder();
-	
 
 	
 	@RequestMapping("/gonggong")
@@ -48,7 +47,7 @@ public class helloController {
 		
 		
 		String urlStr = "http://openapi.seoul.go.kr:8088/6564547a79737579313032585264796b/" +
-    				"json/ListPublicReservationDetail/" +
+    				"json/tvYeyakCOllect/" + //tvYeyakCOllect <- ListPublicReservationDetail
     				"0/" +
     				"20/" +
     				num; //serviceID
@@ -66,24 +65,39 @@ public class helloController {
 		while ((line = rd.readLine()) != null) {
 			result.append(line);
 		}
-		//
+		//a=result.toString();
+		
+		//model.addAttribute(attributeName = "num1", attributeValue= a);  
+		
+		//json 가져오기
 		JSONParser jsonParser = new JSONParser();
 
 		//JSON데이터를 넣어 JSON Object 로 만들어 준다.
 		JSONObject jsonObject = (JSONObject)jsonParser.parse(result.toString());
-		JSONObject ListPublicReservationDetail = (JSONObject)jsonObject.get("ListPublicReservationDetail");
-		JSONArray row = (JSONArray)ListPublicReservationDetail.get("row");
-		
+		JSONObject _tvYeyakCOllect = (JSONObject)jsonObject.get("tvYeyakCOllect");
+		JSONArray _row = (JSONArray)_tvYeyakCOllect.get("row");
+			
 		//배열 추출
-    	JSONObject row_nm = (JSONObject)row.get(0);
-    	
-		conn.disconnect();
+    	JSONObject row_nm = (JSONObject)_row.get(0);
+		
+		//model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("PLACENM").toString()); 
 		model.addAttribute(attributeName = "num1", attributeValue= num1);
 		model.addAttribute(attributeName = "plac", attributeValue= row_nm.get("PLACENM").toString());
-		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCEPTBEGDT").toString());
-		model.addAttribute(attributeName = "d_2", attributeValue= row_nm.get("RCEPTENDDT").toString());
-
-		model.addAttribute(attributeName = "insttNm", attributeValue= a.toString());  
+		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCPTBGNDT").toString());
+		model.addAttribute(attributeName = "d_2", attributeValue= row_nm.get("RCPTENDDT").toString()); 
+		
+		
+	
+    	
+//		//JSONObject isonObject = new JSONObject(result.toString());
+//		
+//		//conn.disconnect();
+//		model.addAttribute(attributeName = "num1", attributeValue= num1);
+//		model.addAttribute(attributeName = "plac", attributeValue= row_nm.get("PLACENM").toString());
+//		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCEPTBEGDT").toString());
+//		model.addAttribute(attributeName = "d_2", attributeValue= row_nm.get("RCEPTENDDT").toString());
+//
+		//model.addAttribute(attributeName = "insttNm", attributeValue= a.toString());  
 		
 		
 		
