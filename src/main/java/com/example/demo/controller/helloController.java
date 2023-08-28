@@ -49,8 +49,8 @@ public class helloController {
 		String urlStr = "http://openapi.seoul.go.kr:8088/6564547a79737579313032585264796b/" +
     				"json/tvYeyakCOllect/" + //tvYeyakCOllect <- ListPublicReservationDetail
     				"0/" +
-    				"20/" +
-    				num; //serviceID
+    				"20/"; //+
+    				//num; //serviceID
 		URL url = new URL(urlStr);
 		
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -79,9 +79,10 @@ public class helloController {
 			
 		//배열 추출
     	JSONObject row_nm = (JSONObject)_row.get(0);
-		
+    	
 		//model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("PLACENM").toString()); 
-		model.addAttribute(attributeName = "num1", attributeValue= num1);
+    	model.addAttribute("msg", "SUCCESS");
+		model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("SVCID").toString());
 		model.addAttribute(attributeName = "plac", attributeValue= row_nm.get("PLACENM").toString());
 		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCPTBGNDT").toString());
 		model.addAttribute(attributeName = "d_2", attributeValue= row_nm.get("RCPTENDDT").toString()); 

@@ -5,6 +5,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<script th:inline="javascript">
+		//var a = 1;
+		var _num1 = '${msg}'; 
+            //for (var i = 0; i < ; i++) {
+               // document.write(i);
+                document.write(_num1);
+            //}
+</script>
+
 <p th:text="'===== hello TEST page ====='"></p>
 <p th:text="'서비스ID: '+ ${num1}"></p>
 <p th:text="'장소명: '+ ${plac}"></p>
