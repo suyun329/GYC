@@ -5,16 +5,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script th:inline="javascript">
-		//var a = 1;
-		var _num1 = '${msg}'; 
-            //for (var i = 0; i < ; i++) {
-               // document.write(i);
-                document.write(_num1);
-            //}
-</script>
 
 <p th:text="'===== hello TEST page ====='"></p>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+	//var a = "[[${num1}]]";
+	var _num1 = "[[${msg}]]"; 
+      //for (var i = 0; i < ; i++) {
+    //document.write(a);
+    document.write(_num1);
+            //}
+    /*]]>*/
+</script>
+
 <p th:text="'서비스ID: '+ ${num1}"></p>
 <p th:text="'장소명: '+ ${plac}"></p>
 <p th:text="'예약 가능일: '+ ${d_1} + '~' + ${d_2}"></p>

@@ -81,7 +81,7 @@ public class helloController {
     	JSONObject row_nm = (JSONObject)_row.get(0);
     	
 		//model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("PLACENM").toString()); 
-    	model.addAttribute("msg", "SUCCESS");
+    	model.addAttribute("msg", "success");
 		model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("SVCID").toString());
 		model.addAttribute(attributeName = "plac", attributeValue= row_nm.get("PLACENM").toString());
 		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCPTBGNDT").toString());
