@@ -20,12 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.NewsVO;
 
 import org.springframework.ui.Model;
-@Controller
+@RestController
 public class helloController {
 	
 	private String attributeName;
 	StringBuilder result = new StringBuilder();
 
+	@GetMapping("/demo/hello")
+    public String HelloWorld(){
+        return "Hello World!! \n";
+    }
 	
 	@RequestMapping("/gonggong")
 	public String home(String num) {
@@ -33,7 +37,7 @@ public class helloController {
 		return "gonggong";
 	}
 	
-	@GetMapping("home")
+	@GetMapping("/home")
 	public String home() {
 		return "home";
 	}
