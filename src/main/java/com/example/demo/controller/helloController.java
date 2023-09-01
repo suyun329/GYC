@@ -60,41 +60,6 @@ public class helloController {
 		}
 		a=result.toString();
 		
-		//model.addAttribute(attributeName = "num1", attributeValue= a);  
-		
-		//json 가져오기
-//		JSONParser jsonParser = new JSONParser();
-//
-//		//JSON데이터를 넣어 JSON Object 로 만들어 준다.
-//		JSONObject jsonObject = (JSONObject)jsonParser.parse(result.toString());
-//		JSONObject _tvYeyakCOllect = (JSONObject)jsonObject.get("tvYeyakCOllect");
-//		JSONArray _row = (JSONArray)_tvYeyakCOllect.get("row");
-//			
-//		//배열 추출
-//    	JSONObject row_nm = (JSONObject)_row.get(0);
-//    	
-//		//model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("PLACENM").toString()); 
-//    	model.addAttribute("msg", "success");
-//		model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("SVCID").toString());
-//		model.addAttribute(attributeName = "plac", attributeValue= row_nm.get("PLACENM").toString());
-//		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCPTBGNDT").toString());
-//		model.addAttribute(attributeName = "d_2", attributeValue= row_nm.get("RCPTENDDT").toString()); 
-//		
-//		
-	
-    	
-//		//JSONObject isonObject = new JSONObject(result.toString());
-//		
-//		//conn.disconnect();
-//		model.addAttribute(attributeName = "num1", attributeValue= num1);
-//		model.addAttribute(attributeName = "plac", attributeValue= row_nm.get("PLACENM").toString());
-//		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCEPTBEGDT").toString());
-//		model.addAttribute(attributeName = "d_2", attributeValue= row_nm.get("RCEPTENDDT").toString());
-//
-		//model.addAttribute(attributeName = "insttNm", attributeValue= a.toString());  
-		
-		
-		
         return a;
     }
 	
