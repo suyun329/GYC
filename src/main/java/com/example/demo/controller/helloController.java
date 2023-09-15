@@ -23,15 +23,19 @@ import org.springframework.ui.Model;
 @RestController
 public class helloController {
 	
-	private String attributeName;
+	//private String attributeName;
 	StringBuilder result = new StringBuilder();
-
+	
 	@GetMapping("/demo/hello2")
     public String HelloWorld(){
         return "Hello World!! \n";
     }
 	
-	@GetMapping("/demo/hello")
+	public  helloController() {
+		
+	}
+	
+	@GetMapping("/demo/hello3")
 	public String Hellotest()throws IOException, ParseException{
 		String attributeValue;
 		//String num1 = num;
@@ -58,8 +62,19 @@ public class helloController {
 		while ((line = rd.readLine()) != null) {
 			result.append(line);
 		}
-		a=result.toString();
-		
+//		a=result.toString();
+//		
+		JSONParser jsonParser = new JSONParser();
+//
+//		//JSON데이터를 넣어 JSON Object 로 만들어 준다.
+		JSONObject jsonObject = (JSONObject)jsonParser.parse(result.toString());
+		JSONObject _tvYeyakCOllect = (JSONObject)jsonObject.get("tvYeyakCOllect");
+		a = _tvYeyakCOllect.toJSONString();
+//		JSONArray _row = (JSONArray)_tvYeyakCOllect.get("row");
+//			
+//		//배열 추출
+//    	JSONObject row_nm = (JSONObject)_row.get(0);
+//    	a= row_nm.get("PLACENM").toString();
         return a;
     }
 	
@@ -117,13 +132,13 @@ public class helloController {
     	JSONObject row_nm = (JSONObject)_row.get(0);
     	
 		//model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("PLACENM").toString()); 
-    	model.addAttribute("msg", "success");
-		model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("SVCID").toString());
-		model.addAttribute(attributeName = "plac", attributeValue= row_nm.get("PLACENM").toString());
-		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCPTBGNDT").toString());
-		model.addAttribute(attributeName = "d_2", attributeValue= row_nm.get("RCPTENDDT").toString()); 
+//    	model.addAttribute("msg", "success");
+//		model.addAttribute(attributeName = "num1", attributeValue= row_nm.get("SVCID").toString());
+//		model.addAttribute(attributeName = "plac", attributeValue= row_nm.get("PLACENM").toString());
+//		model.addAttribute(attributeName = "d_1", attributeValue= row_nm.get("RCPTBGNDT").toString());
+//		model.addAttribute(attributeName = "d_2", attributeValue= row_nm.get("RCPTENDDT").toString()); 
 		
-		
+		// 26번줄 private String attributeName; 주석해서 130~134 주석 함
 	
     	
 //		//JSONObject isonObject = new JSONObject(result.toString());
