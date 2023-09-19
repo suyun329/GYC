@@ -30,7 +30,7 @@ public class helloController {
     public String HelloWorld(){
         return "Hello World!! \n";
     }
-	
+
 	public  helloController() {
 		
 	}
@@ -39,14 +39,14 @@ public class helloController {
 	public String Hellotest()throws IOException, ParseException{
 		String attributeValue;
 		//String num1 = num;
-		String a = "null";
+		String a = "[";
 		//StringBuilder result = new StringBuilder();
 		
 		
 		String urlStr = "http://openapi.seoul.go.kr:8088/6564547a79737579313032585264796b/" +
     				"json/tvYeyakCOllect/" + //tvYeyakCOllect <- ListPublicReservationDetail
     				"0/" +
-    				"20/"; //+
+    				"5/"; //+
     				//num; //serviceID
 		URL url = new URL(urlStr);
 		
@@ -62,15 +62,20 @@ public class helloController {
 		while ((line = rd.readLine()) != null) {
 			result.append(line);
 		}
-//		a=result.toString();
+		a=result.toString();
 //		
-		JSONParser jsonParser = new JSONParser();
-//
-//		//JSON데이터를 넣어 JSON Object 로 만들어 준다.
-		JSONObject jsonObject = (JSONObject)jsonParser.parse(result.toString());
-		JSONObject _tvYeyakCOllect = (JSONObject)jsonObject.get("tvYeyakCOllect");
-		a = _tvYeyakCOllect.toJSONString();
+//		JSONParser jsonParser = new JSONParser();
+////
+////		//JSON데이터를 넣어 JSON Object 로 만들어 준다.
+//		JSONObject jsonObject = (JSONObject)jsonParser.parse(result.toString());
+//		JSONObject _tvYeyakCOllect = (JSONObject)jsonObject.get("tvYeyakCOllect");
 //		JSONArray _row = (JSONArray)_tvYeyakCOllect.get("row");
+//		for (int i=0; i <_row.size(); i++) {
+//			JSONObject row_nm = (JSONObject)_row.get(i);
+//			String id = (String) row_nm.get("SVCID");
+//			a = a+" {\"id\""+(i+1)+": "+"\""+id+"\"}\n";
+//		}
+//		a = a+"]";
 //			
 //		//배열 추출
 //    	JSONObject row_nm = (JSONObject)_row.get(0);
